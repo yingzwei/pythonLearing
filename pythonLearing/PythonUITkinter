@@ -1,0 +1,40 @@
+from tkinter import *
+
+'''
+def resize(ev=None):
+    label.config(font='Helvetica -%d bold' % scale.get())
+
+
+top = Tk()
+top.geometry('450x450')
+
+label = Label(top, text='hello word !', font='Helvetica -12 bold')
+label.pack(fill=BOTH, expand=YES)
+
+scale = Scale(top, from_=10, to=40, orient=HORIZONTAL, command=resize)
+scale.set(12)
+scale.pack(fill=X, expand=NO)
+
+bt_quit = Button(top, text='Quit', command=top.quit,
+                 activeforeground='yellow',
+                 activebackground='red')
+bt_quit.pack(side=TOP)
+
+top.title('My Test First')
+mainloop()
+'''
+
+
+class HelloButton(Button):
+    def __init__(self, parent=None, **config):
+        Button.__init__(self, parent, **config)
+        self.pack()
+        self.config(command=self.callback)
+
+    def callback(self):
+        print('Good World...')
+        self.quit()
+
+
+if __name__ == '__main__':
+    HelloButton(text='Hello subclass world').mainloop()
